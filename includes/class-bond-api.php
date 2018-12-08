@@ -92,7 +92,7 @@ final class Bond_API {
      * @return void
      */
     private function init_hooks() {
-        // register_activation_hook( PICKLE_CALENDAR_PLUGIN_FILE, array( 'Pickle_Calendar_Install', 'install' ) );
+        register_activation_hook( BOND_API_PLUGIN_FILE, array( 'Bond_API_Install', 'install' ) );
     }
 
     /**
