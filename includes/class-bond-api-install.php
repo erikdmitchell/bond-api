@@ -51,6 +51,7 @@ class Bond_API_Install {
     public static function check_version() {
         if ( self::is_new_install() ) :
             self::install();
+            self::add_data();
         elseif ( get_option( 'bond_api_version' ) !== bondapi()->version ) :
             self::update_version();
             self::update();
@@ -82,6 +83,17 @@ class Bond_API_Install {
         self::update();
 
         delete_transient( 'bond_api_installing' );
+    }
+    
+    private static function add_data() {
+        /*
+            load data files
+            add posts  
+        */    
+echo "add data";        
+        foreach ( glob( BOND_API_PATH . 'data/*.php' ) as $file ) :
+            include_once( $file );
+        endforeach;
     }
 
     /**
@@ -124,7 +136,7 @@ class Bond_API_Install {
     private static function update_version() {
         delete_option( 'bond_api_version' );
 
-        add_option( 'bond_api_version', picklecalendar()->version );
+        add_option( 'bond_api_version', bondapi()->version );
     }
 
     /**
