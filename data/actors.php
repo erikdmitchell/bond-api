@@ -14,8 +14,8 @@ $actors = array(
     ),
     array(
         'title' => 'Pierce Brosnan',
-    ),                        
+    ),
     array(
         'title' => 'Daniel Craig',
-    ),    
+    ),
 );
