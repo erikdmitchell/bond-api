@@ -23,11 +23,11 @@ class Bond_API_Install {
      * @static
      */
     private static $updates = array(
-/*
+    /*
         '1.2.0' => array(
             'pcl_update_120_taxonomies',
         ),
-*/
+    */
     );
 
     /**
@@ -84,13 +84,13 @@ class Bond_API_Install {
 
         delete_transient( 'bond_api_installing' );
     }
-    
+
     private static function add_data() {
         /*
             load data files
-            add posts  
-        */    
-echo "add data";        
+            add posts
+        */
+        echo 'add data';
         foreach ( glob( BOND_API_PATH . 'data/*.php' ) as $file ) :
             include_once( $file );
         endforeach;
