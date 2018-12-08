@@ -116,7 +116,7 @@ final class Bond_API {
             'post-types',
         );
         foreach ( $dirs as $dir ) :
-            foreach ( glob( CRM_PATH . $dir . '/*.php' ) as $file ) :
+            foreach ( glob( BOND_API_PATH . $dir . '/*.php' ) as $file ) :
                 include_once( $file );
             endforeach;
         endforeach;
