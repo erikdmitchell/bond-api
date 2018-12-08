@@ -80,20 +80,15 @@ class Bond_API_Install {
     }
 
     private static function add_data() {
-        /*
-        Actors first, then get id for films
-        Then do directors so we can add to films
-        Then add films
-        Add villains and link to film
-        */
         include_once( BOND_API_PATH . '/data/actors.php' );
         include_once( BOND_API_PATH . '/data/directors.php' );
         include_once( BOND_API_PATH . '/data/films.php' );
         include_once( BOND_API_PATH . '/data/villains.php' );
 
-        $actors_data = bond_api_install_actors();
-
-        print_r( $actors_data );
+        $actors = bond_api_install_actors();
+        $directors = bond_api_install_directors();
+        $films = bond_api_install_films($actors, $$directors);
+        $villians = bond_api_install_villians($films);
     }
 
     /**
