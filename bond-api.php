@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name:     Bond API
- * Plugin URI:      
+ * Plugin URI:
  * Description:     A plugin to power the James Bond API.
  * Author:          Erik Mitchell
- * Author URI: 
+ * Author URI:
  * Text Domain:     bond-api
  * Domain Path:     /languages
  * Version:         0.1.0

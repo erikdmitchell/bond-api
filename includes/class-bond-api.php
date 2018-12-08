@@ -79,8 +79,7 @@ final class Bond_API {
      * @return void
      */
     public function includes() {
-        //include_once( PICKLE_CALENDAR_PATH . 'update-functions.php' );
-
+        // include_once( PICKLE_CALENDAR_PATH . 'update-functions.php' );
         if ( is_admin() ) {
             $this->admin = new Bond_API_Admin();
         }
@@ -93,7 +92,7 @@ final class Bond_API {
      * @return void
      */
     private function init_hooks() {
-        //register_activation_hook( PICKLE_CALENDAR_PLUGIN_FILE, array( 'Pickle_Calendar_Install', 'install' ) );
+        // register_activation_hook( PICKLE_CALENDAR_PLUGIN_FILE, array( 'Pickle_Calendar_Install', 'install' ) );
     }
 
     /**
@@ -103,12 +102,18 @@ final class Bond_API {
      * @return void
      */
     public function init() {
-        $this->load_files();    
+        $this->load_files();
     }
 
+    /**
+     * Load files.
+     *
+     * @access private
+     * @return void
+     */
     private function load_files() {
         $dirs = array(
-            'post-types'
+            'post-types',
         );
         foreach ( $dirs as $dir ) :
             foreach ( glob( CRM_PATH . $dir . '/*.php' ) as $file ) :

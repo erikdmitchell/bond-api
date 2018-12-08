@@ -7,7 +7,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+    exit; // Exit if accessed directly
 }
 
 /**
@@ -15,18 +15,18 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Bond_API_Admin {
 
-	/**
-	 * Constructor.
-	 */
-	public function __construct() {
-		add_action( 'init', array( $this, 'includes' ) );
-	}
+    /**
+     * Constructor.
+     */
+    public function __construct() {
+        add_action( 'init', array( $this, 'includes' ) );
+    }
 
-	/**
-	 * Include any classes we need within admin.
-	 */
-	public function includes() {
+    /**
+     * Include any classes we need within admin.
+     */
+    public function includes() {
 
-	}
+    }
 
 }
