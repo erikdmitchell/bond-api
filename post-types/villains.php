@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Registers the `villns` post type.
+ * Registers the `villains` post type.
  */
-function villns_init() {
+function villains_init() {
     register_post_type(
-        'villns', array(
+        'villains', array(
             'labels'                => array(
                 'name'                  => __( 'Villains', 'bond-api' ),
                 'singular_name'         => __( 'Villains', 'bond-api' ),
@@ -14,10 +14,10 @@ function villns_init() {
                 'attributes'            => __( 'Villains Attributes', 'bond-api' ),
                 'insert_into_item'      => __( 'Insert into Villains', 'bond-api' ),
                 'uploaded_to_this_item' => __( 'Uploaded to this Villains', 'bond-api' ),
-                'featured_image'        => _x( 'Featured Image', 'villns', 'bond-api' ),
-                'set_featured_image'    => _x( 'Set featured image', 'villns', 'bond-api' ),
-                'remove_featured_image' => _x( 'Remove featured image', 'villns', 'bond-api' ),
-                'use_featured_image'    => _x( 'Use as featured image', 'villns', 'bond-api' ),
+                'featured_image'        => _x( 'Featured Image', 'villains', 'bond-api' ),
+                'set_featured_image'    => _x( 'Set featured image', 'villains', 'bond-api' ),
+                'remove_featured_image' => _x( 'Remove featured image', 'villains', 'bond-api' ),
+                'use_featured_image'    => _x( 'Use as featured image', 'villains', 'bond-api' ),
                 'filter_items_list'     => __( 'Filter Villains list', 'bond-api' ),
                 'items_list_navigation' => __( 'Villains list navigation', 'bond-api' ),
                 'items_list'            => __( 'Villains list', 'bond-api' ),
@@ -42,15 +42,15 @@ function villns_init() {
             'rewrite'               => true,
             'query_var'             => true,
             'menu_position'         => null,
-            'menu_icon'             => 'dashicons-admin-post',
+            'menu_icon'             => 'dashicons-businessman',
             'show_in_rest'          => true,
-            'rest_base'             => 'villns',
+            'rest_base'             => 'villains',
             'rest_controller_class' => 'WP_REST_Posts_Controller',
         )
     );
 
 }
-add_action( 'init', 'villns_init' );
+add_action( 'init', 'villains_init' );
 
 /**
  * Sets the post updated messages for the `villns` post type.
@@ -58,7 +58,7 @@ add_action( 'init', 'villns_init' );
  * @param  array $messages Post updated messages.
  * @return array Messages for the `villns` post type.
  */
-function villns_updated_messages( $messages ) {
+function villains_updated_messages( $messages ) {
     global $post;
 
     $permalink = get_permalink( $post );
@@ -88,4 +88,4 @@ function villns_updated_messages( $messages ) {
 
     return $messages;
 }
-add_filter( 'post_updated_messages', 'villns_updated_messages' );
+add_filter( 'post_updated_messages', 'villains_updated_messages' );

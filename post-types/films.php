@@ -42,7 +42,7 @@ function films_init() {
             'rewrite'               => true,
             'query_var'             => true,
             'menu_position'         => null,
-            'menu_icon'             => 'dashicons-admin-post',
+            'menu_icon'             => 'dashicons-video-alt2',
             'show_in_rest'          => true,
             'rest_base'             => 'film',
             'rest_controller_class' => 'WP_REST_Posts_Controller',

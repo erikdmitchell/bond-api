@@ -42,7 +42,7 @@ function directors_init() {
             'rewrite'               => true,
             'query_var'             => true,
             'menu_position'         => null,
-            'menu_icon'             => 'dashicons-admin-post',
+            'menu_icon'             => 'dashicons-megaphone',
             'show_in_rest'          => true,
             'rest_base'             => 'directors',
             'rest_controller_class' => 'WP_REST_Posts_Controller',
