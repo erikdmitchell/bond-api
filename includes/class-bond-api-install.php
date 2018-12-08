@@ -43,13 +43,13 @@ class Bond_API_Install {
      * @return void
      */
     public static function check_version() {
-        // if ( self::is_new_install() ) :
-            // self::install();
+        if ( self::is_new_install() ) :
+            self::install();
             self::add_data();
-        // elseif ( get_option( 'bond_api_version' ) !== bondapi()->version ) :
-            // self::update_version();
-            // self::update();
-        // endif;
+        elseif ( get_option( 'bond_api_version' ) !== bondapi()->version ) :
+            self::update_version();
+            self::update();
+        endif;
     }
 
     /**
@@ -87,8 +87,8 @@ class Bond_API_Install {
 
         $actors = bond_api_install_actors();
         $directors = bond_api_install_directors();
-        $films = bond_api_install_films($actors, $directors);
-        $villians = bond_api_install_villians($films);
+        $films = bond_api_install_films( $actors, $directors );
+        $villians = bond_api_install_villians( $films );
     }
 
     /**
