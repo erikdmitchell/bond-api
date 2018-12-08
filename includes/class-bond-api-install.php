@@ -87,7 +87,7 @@ class Bond_API_Install {
 
         $actors = bond_api_install_actors();
         $directors = bond_api_install_directors();
-        $films = bond_api_install_films($actors, $$directors);
+        $films = bond_api_install_films($actors, $directors);
         $villians = bond_api_install_villians($films);
     }
 
