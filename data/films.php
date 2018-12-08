@@ -226,6 +226,24 @@ function bond_api_install_films( $actors, $directors ) {
         if ( ! has_post_thumbnail( $post_id ) ) :
             bond_api_install_insert_image( $film_data['image'], $post_id );
         endif;
+        
+        // reverse engineer meta for actors and directors
+        $actors_films = get_post_meta($actor_id, '_film_ids', true);
+        $directors_films = get_post_meta($director_id, '_film_ids', true);
+        
+        if (!is_array($actors_films)) :
+            $actors_films = array($actors_films);
+        endif;
+
+        if (!is_array($directors_films)) :
+            $directors_films = array($directors_films);
+        endif;
+        
+        $actors_films[] = $post_id;
+        $directors_films[] = $post_id;
+        
+        update_post_meta($actor_id, '_film_ids', $actors_films);
+        update_post_meta($director_id, '_film_ids', $directors_films);
     endforeach;
 
     return $films;
