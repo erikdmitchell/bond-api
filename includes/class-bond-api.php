@@ -79,7 +79,8 @@ final class Bond_API {
      * @return void
      */
     public function includes() {
-        // include_once( PICKLE_CALENDAR_PATH . 'update-functions.php' );
+        include_once( BOND_API_PATH . '/admin/class-bond-api-admin.php' );
+        
         if ( is_admin() ) {
             $this->admin = new Bond_API_Admin();
         }
