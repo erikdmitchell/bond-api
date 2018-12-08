@@ -106,7 +106,7 @@ $films = array(
         'image' => 'https://upload.wikimedia.org/wikipedia/en/a/ae/The_Living_Daylights_-_UK_cinema_poster.jpg',
     ),
     array(
-        'title' => 'Licence to Kill',
+        'title' => 'License to Kill',
         'year' => 1989,
         'actor' => 'Timothy Dalton',
         'director' => 'John Glen',
