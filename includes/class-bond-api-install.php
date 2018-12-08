@@ -22,13 +22,7 @@ class Bond_API_Install {
      * @access private
      * @static
      */
-    private static $updates = array(
-    /*
-        '1.2.0' => array(
-            'pcl_update_120_taxonomies',
-        ),
-    */
-    );
+    private static $updates = array();
 
     /**
      * Init function.
@@ -49,13 +43,13 @@ class Bond_API_Install {
      * @return void
      */
     public static function check_version() {
-        if ( self::is_new_install() ) :
-            self::install();
+        // if ( self::is_new_install() ) :
+            // self::install();
             self::add_data();
-        elseif ( get_option( 'bond_api_version' ) !== bondapi()->version ) :
-            self::update_version();
-            self::update();
-        endif;
+        // elseif ( get_option( 'bond_api_version' ) !== bondapi()->version ) :
+            // self::update_version();
+            // self::update();
+        // endif;
     }
 
     /**
@@ -87,13 +81,19 @@ class Bond_API_Install {
 
     private static function add_data() {
         /*
-            load data files
-            add posts
+        Actors first, then get id for films
+        Then do directors so we can add to films
+        Then add films
+        Add villains and link to film
         */
-        echo 'add data';
-        foreach ( glob( BOND_API_PATH . 'data/*.php' ) as $file ) :
-            include_once( $file );
-        endforeach;
+        include_once( BOND_API_PATH . '/data/actors.php' );
+        include_once( BOND_API_PATH . '/data/directors.php' );
+        include_once( BOND_API_PATH . '/data/films.php' );
+        include_once( BOND_API_PATH . '/data/villains.php' );
+
+        $actors_data = bond_api_install_actors();
+
+        print_r( $actors_data );
     }
 
     /**

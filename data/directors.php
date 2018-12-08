@@ -1,36 +1,36 @@
 <?php
 $directors = array(
     array(
-        'title': 'Terence Young',
+        'title' => 'Terence Young',
     ),
     array(
-        'title': 'Guy Hamilton',
+        'title' => 'Guy Hamilton',
     ),
     array(
-        'title': 'Lewis Gilbert',
+        'title' => 'Lewis Gilbert',
     ),
     array(
-        'title': 'Peter R. Hunt',
+        'title' => 'Peter R. Hunt',
     ),
     array(
-        'title': 'John Glen',
+        'title' => 'John Glen',
     ),
     array(
-        'title': 'Martin Campbell',
+        'title' => 'Martin Campbell',
     ),
     array(
-        'title': 'Roger Spottiswoode',
+        'title' => 'Roger Spottiswoode',
     ),
     array(
-        'title': 'Michael Apted',
+        'title' => 'Michael Apted',
     ),
     array(
-        'title': 'Lee Tamahori',
+        'title' => 'Lee Tamahori',
     ),
     array(
-        'title': 'Marc Forster',
+        'title' => 'Marc Forster',
     ),
     array(
-        'title': 'Sam Mendes',
+        'title' => 'Sam Mendes',
     ),
 );
