@@ -21,3 +21,13 @@ function bond_api_get_villains_films($villain_id = 0) {
 
     return $films;    
 }
+
+function bond_api_get_film_details($film_id = 0) {
+    $film_details =array();
+    
+    $film_details['actor'] = get_post_meta($film_id, '_actor_id', true);
+    $film_details['director'] = get_post_meta($film_id, '_director_id', true);
+    $film_details['year'] = get_post_meta($film_id, '_year', true);
+
+    return $film_details;    
+}
