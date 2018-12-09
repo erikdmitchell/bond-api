@@ -44,7 +44,7 @@ function films_init() {
             'menu_position'         => null,
             'menu_icon'             => 'dashicons-video-alt2',
             'show_in_rest'          => true,
-            'rest_base'             => 'film',
+            'rest_base'             => 'films',
             'rest_controller_class' => 'WP_REST_Posts_Controller',
         )
     );
