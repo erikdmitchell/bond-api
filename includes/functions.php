@@ -15,3 +15,9 @@ function bond_api_get_directors_films($director_id = 0) {
 
     return $films;    
 }
+
+function bond_api_get_villains_films($villain_id = 0) {
+    $films = get_post_meta($villain_id, '_film_ids', true);
+
+    return $films;    
+}
