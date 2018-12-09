@@ -221,6 +221,7 @@ function bond_api_install_films( $actors, $directors ) {
         // add meta.
         update_post_meta( $post_id, '_actor_id', $actor_id );
         update_post_meta( $post_id, '_director_id', $director_id );
+        update_post_meta( $post_id, '_year', $film_data['year'] );
 
         // set featured image.
         if ( ! has_post_thumbnail( $post_id ) ) :
