@@ -29,7 +29,7 @@ class Bond_API_Villains_Meta_Box {
     public function add_metabox() {
         add_meta_box(
             'villains-details',
-            __( 'Villian Details', 'bond-api' ),
+            __( 'Villain Details', 'bond-api' ),
             array( $this, 'render_metabox' ),
             'villains',
             'advanced',
