@@ -43,7 +43,21 @@ class Bond_API_Actors_Meta_Box {
      */
     public function render_metabox( $post ) {
         // Add nonce for security and authentication.
-        wp_nonce_field( 'custom_nonce_action', 'custom_nonce' );
+        wp_nonce_field( 'update_actor_details', 'bond_api' );
+        
+        $films = bond_api_get_actors_films($post->ID);
+        $html = '';
+        
+        $html .= '<div class="mb-row">';
+            $html .='<label>Films</label>';
+            $html .= '<ul class="films-list">';
+                foreach ($films as $film) :
+                    $html .='<li class="film">'.get_the_title($film).'</li>';
+                endforeach;
+            $html .= '</ul>';    
+        $html .= '</div>';
+        
+        echo $html;
     }
  
     /**
@@ -55,8 +69,8 @@ class Bond_API_Actors_Meta_Box {
      */
     public function save_metabox( $post_id, $post ) {
         // Add nonce for security and authentication.
-        $nonce_name   = isset( $_POST['custom_nonce'] ) ? $_POST['custom_nonce'] : '';
-        $nonce_action = 'custom_nonce_action';
+        $nonce_name   = isset( $_POST['bond_api'] ) ? $_POST['bond_api'] : '';
+        $nonce_action = 'update_actor_details';
  
         // Check if nonce is valid.
         if ( ! wp_verify_nonce( $nonce_name, $nonce_action ) ) {
