@@ -80,6 +80,7 @@ final class Bond_API {
      */
     public function includes() {
         include_once( BOND_API_PATH . 'includes/admin/class-bond-api-admin.php' );
+        include_once( BOND_API_PATH . 'includes/bond-rest-api.php' );
         include_once( BOND_API_PATH . 'includes/class-bond-api-install.php' );
         include_once( BOND_API_PATH . 'includes/functions.php' );
 
