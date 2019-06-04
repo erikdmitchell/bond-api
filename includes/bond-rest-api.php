@@ -12,6 +12,7 @@ class BOND_REST_Actors extends WP_REST_Controller {
     $version = '1';
     $namespace = 'bond/v' . $version;
     $base = 'route';
+    
     register_rest_route( $namespace, '/' . $base, array(
       array(
         'methods'             => WP_REST_Server::READABLE,
@@ -28,6 +29,7 @@ class BOND_REST_Actors extends WP_REST_Controller {
         'args'                => $this->get_endpoint_args_for_item_schema( true ),
       ),
     ) );
+    
     register_rest_route( $namespace, '/' . $base . '/(?P<id>[\d]+)', array(
       array(
         'methods'             => WP_REST_Server::READABLE,
@@ -56,6 +58,7 @@ class BOND_REST_Actors extends WP_REST_Controller {
         ),
       ),
     ) );
+    
     register_rest_route( $namespace, '/' . $base . '/schema', array(
       'methods'  => WP_REST_Server::READABLE,
       'callback' => array( $this, 'get_public_item_schema' ),
@@ -71,6 +74,7 @@ class BOND_REST_Actors extends WP_REST_Controller {
   public function get_items( $request ) {
     $items = array(); //do a query, call another class, etc
     $data = array();
+    
     foreach( $items as $item ) {
       $itemdata = $this->prepare_item_for_response( $item, $request );
       $data[] = $this->prepare_response_for_collection( $itemdata );
