@@ -51,8 +51,8 @@ final class Bond_API {
      * @return void
      */
     private function define_constants() {
-        $this->define( 'BOND_API_PATH', plugin_dir_path( __FILE__ ) );
-        $this->define( 'BOND_API_URL', plugin_dir_url( __FILE__ ) );
+        $this->define( 'BOND_API_PATH', dirname( BOND_API_PLUGIN_FILE ) . '/' );
+        $this->define( 'BOND_API_URL', plugins_url() . '/bond-api' );
         $this->define( 'BOND_API_VERSION', $this->version );
         $this->define( 'BOND_API_REQUIRES', '4.5' );
         $this->define( 'BOND_API_TESTED', '5.0' );
@@ -79,7 +79,10 @@ final class Bond_API {
      * @return void
      */
     public function includes() {
-        // include_once( PICKLE_CALENDAR_PATH . 'update-functions.php' );
+        include_once( BOND_API_PATH . 'includes/admin/class-bond-api-admin.php' );
+        include_once( BOND_API_PATH . 'includes/class-bond-api-install.php' );
+        include_once( BOND_API_PATH . 'includes/functions.php' );
+
         if ( is_admin() ) {
             $this->admin = new Bond_API_Admin();
         }
@@ -92,7 +95,7 @@ final class Bond_API {
      * @return void
      */
     private function init_hooks() {
-        // register_activation_hook( PICKLE_CALENDAR_PLUGIN_FILE, array( 'Pickle_Calendar_Install', 'install' ) );
+        register_activation_hook( BOND_API_PLUGIN_FILE, array( 'Bond_API_Install', 'install' ) );
     }
 
     /**
@@ -115,8 +118,9 @@ final class Bond_API {
         $dirs = array(
             'post-types',
         );
+
         foreach ( $dirs as $dir ) :
-            foreach ( glob( CRM_PATH . $dir . '/*.php' ) as $file ) :
+            foreach ( glob( BOND_API_PATH . $dir . '/*.php' ) as $file ) :
                 include_once( $file );
             endforeach;
         endforeach;

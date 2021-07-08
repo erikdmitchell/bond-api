@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Registers the `film` post type.
+ * Registers the `films` post type.
  */
-function film_init() {
+function films_init() {
     register_post_type(
-        'film', array(
+        'films', array(
             'labels'                => array(
                 'name'                  => __( 'Films', 'bond-api' ),
                 'singular_name'         => __( 'Film', 'bond-api' ),
@@ -14,10 +14,10 @@ function film_init() {
                 'attributes'            => __( 'Film Attributes', 'bond-api' ),
                 'insert_into_item'      => __( 'Insert into Film', 'bond-api' ),
                 'uploaded_to_this_item' => __( 'Uploaded to this Film', 'bond-api' ),
-                'featured_image'        => _x( 'Featured Image', 'film', 'bond-api' ),
-                'set_featured_image'    => _x( 'Set featured image', 'film', 'bond-api' ),
-                'remove_featured_image' => _x( 'Remove featured image', 'film', 'bond-api' ),
-                'use_featured_image'    => _x( 'Use as featured image', 'film', 'bond-api' ),
+                'featured_image'        => _x( 'Featured Image', 'films', 'bond-api' ),
+                'set_featured_image'    => _x( 'Set featured image', 'films', 'bond-api' ),
+                'remove_featured_image' => _x( 'Remove featured image', 'films', 'bond-api' ),
+                'use_featured_image'    => _x( 'Use as featured image', 'films', 'bond-api' ),
                 'filter_items_list'     => __( 'Filter Films list', 'bond-api' ),
                 'items_list_navigation' => __( 'Films list navigation', 'bond-api' ),
                 'items_list'            => __( 'Films list', 'bond-api' ),
@@ -37,28 +37,28 @@ function film_init() {
             'hierarchical'          => false,
             'show_ui'               => true,
             'show_in_nav_menus'     => true,
-            'supports'              => array( 'title', 'editor' ),
+            'supports'              => array( 'title', 'editor', 'thumbnail' ),
             'has_archive'           => true,
             'rewrite'               => true,
             'query_var'             => true,
             'menu_position'         => null,
-            'menu_icon'             => 'dashicons-admin-post',
+            'menu_icon'             => 'dashicons-video-alt2',
             'show_in_rest'          => true,
-            'rest_base'             => 'film',
+            'rest_base'             => 'films',
             'rest_controller_class' => 'WP_REST_Posts_Controller',
         )
     );
 
 }
-add_action( 'init', 'film_init' );
+add_action( 'init', 'films_init' );
 
 /**
- * Sets the post updated messages for the `film` post type.
+ * Sets the post updated messages for the `films` post type.
  *
  * @param  array $messages Post updated messages.
- * @return array Messages for the `film` post type.
+ * @return array Messages for the `films` post type.
  */
-function film_updated_messages( $messages ) {
+function films_updated_messages( $messages ) {
     global $post;
 
     $permalink = get_permalink( $post );
@@ -88,4 +88,4 @@ function film_updated_messages( $messages ) {
 
     return $messages;
 }
-add_filter( 'post_updated_messages', 'film_updated_messages' );
+add_filter( 'post_updated_messages', 'films_updated_messages' );
